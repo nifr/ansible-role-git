@@ -1,0 +1,10 @@
+---
+
+- name: "git:install:package | Installing the apt package."
+  apt:
+    name:             '{{ item }}'
+    state:            'latest'
+    update_cache:     '{{ "yes" if git_apt_cache_update else "no" }}'
+    cache_valid_time: '{{ git_apt_cache_timeout }}'
+  with_items:
+    - '{{ git_package }}'

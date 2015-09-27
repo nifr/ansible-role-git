@@ -1,0 +1,7 @@
+---
+
+- include: 'git/add/repository.yml'
+  tags: [git, add, repository]
+
+- include: 'git/install/package.yml'
+  tags: [git, install, package]

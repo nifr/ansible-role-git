@@ -1,0 +1,22 @@
+---
+
+## @var string [stable|release]
+git_install_rc: false
+
+## @var string repository string
+git_ppa_stable: 'ppa:git-core/ppa'
+
+## @var string repository string
+git_ppa_rc: 'ppa:git-core/candidate'
+
+## @var string repository string
+git_repository: '{{ git_ppa_rc if git_install_rc else git_ppa_stable }}'
+
+## @var string package name
+git_package:    'git'
+
+## @var boolean
+git_apt_cache_update:  '{{ apt_update_cache|default("yes") }}'
+
+## @var integer
+git_apt_cache_timeout: '{{ apt_cache_timeout|default(3600) }}'

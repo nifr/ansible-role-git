@@ -1,0 +1,9 @@
+---
+
+- name: "git:add:repository | Adding the apt repository."
+  apt_repository:
+    repo:         '{{ item.repository }}'
+    state:        'present'
+    update_cache: '{{ item.update_cache }}'
+  with_items:
+    - '{"repository": "{{ git_repository }}", "update_cache": "{{ "yes" if git_apt_cache_update else "no" }}"}'
